@@ -1915,17 +1915,17 @@ export default function ExpandedCentenariansActManagement({ hideHeader = false }
             ) : (
               <table className="w-full text-left border-collapse min-w-[950px]">
                 <thead>
-                  <tr className="bg-slate-50 text-slate-400 font-bold text-[10px] uppercase tracking-wider border-b border-slate-100">
-                    <th className="py-4 px-6 font-sans">Applied date</th>
-                    <th className="py-4 px-6 font-sans">SCID Number</th>
-                    <th className="py-4 px-6 font-sans">Fullname</th>
-                    <th className="py-4 px-6 font-sans">Age & Birthdate</th>
-                    <th className="py-4 px-6 font-sans">Barangay</th>
-                    <th className="py-4 px-6 font-sans">Program Category</th>
-                    <th className="py-4 px-6 font-sans">Applicant Type</th>
-                    <th className="py-4 px-6 font-sans">Status</th>
-                    <th className="py-4 px-6 font-sans">Disbursement Status</th>
-                    <th className="py-4 px-6 font-sans">Action</th>
+                  <tr className="bg-slate-50 border-b border-slate-200">
+                    <th className="px-6 py-4 text-xs font-semibold text-slate-500 tracking-wider font-sans">Applied date</th>
+                    <th className="px-6 py-4 text-xs font-semibold text-slate-500 tracking-wider font-sans">SCID Number</th>
+                    <th className="px-6 py-4 text-xs font-semibold text-slate-500 tracking-wider font-sans">Fullname</th>
+                    <th className="px-6 py-4 text-xs font-semibold text-slate-500 tracking-wider font-sans">Age & Birthdate</th>
+                    <th className="px-6 py-4 text-xs font-semibold text-slate-500 tracking-wider font-sans">Barangay</th>
+                    <th className="px-6 py-4 text-xs font-semibold text-slate-500 tracking-wider font-sans">Program Category</th>
+                    <th className="px-6 py-4 text-xs font-semibold text-slate-500 tracking-wider font-sans">Applicant Type</th>
+                    <th className="px-6 py-4 text-xs font-semibold text-slate-500 tracking-wider font-sans">Status</th>
+                    <th className="px-6 py-4 text-xs font-semibold text-slate-500 tracking-wider font-sans">Disbursement Status</th>
+                    <th className="px-6 py-4 text-xs font-semibold text-slate-500 tracking-wider font-sans">Action</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -1957,25 +1957,25 @@ export default function ExpandedCentenariansActManagement({ hideHeader = false }
                     return (
                       <tr key={app.application_id || citizenId} className="hover:bg-slate-50/50 transition-colors">
                         {/* Applied date */}
-                        <td className="py-4 px-6 font-medium text-slate-700 font-sans text-xs">
-                          {appliedDateStr}
+                        <td className="px-6 py-4">
+                          <p className="text-xs font-medium text-slate-500 font-sans">{appliedDateStr}</p>
                         </td>
 
                         {/* SCID Number */}
-                        <td className="py-4 px-6 font-mono text-xs text-slate-600">
-                          {scidNumber}
+                        <td className="px-6 py-4">
+                          <p className="text-xs font-semibold text-slate-600 font-mono tracking-wider">{scidNumber}</p>
                         </td>
 
                         {/* Fullname */}
-                        <td className="py-4 px-6 font-bold text-slate-900 font-sans">
-                          {fullName}
+                        <td className="px-6 py-4">
+                          <p className="text-sm font-semibold text-slate-900 font-sans">{fullName}</p>
                         </td>
 
                         {/* Age & Birthdate */}
-                        <td className="py-4 px-6">
-                          <div className="flex items-center gap-1.5 font-bold text-slate-800 font-sans">
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-1.5 font-semibold text-sm text-slate-800 font-sans">
                             <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                            <span>{age} years old</span>
+                            <span>{age} y/o</span>
                           </div>
                           <div className="text-xs font-medium text-slate-400 mt-0.5 font-sans">
                             {birthdate !== 'N/A' ? new Date(birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'No Birthdate'}
@@ -1983,64 +1983,64 @@ export default function ExpandedCentenariansActManagement({ hideHeader = false }
                         </td>
 
                         {/* Barangay */}
-                        <td className="py-4 px-6 font-medium text-slate-700 font-sans text-xs">
-                          {barangay}
+                        <td className="px-6 py-4">
+                          <p className="text-xs font-medium text-slate-500 font-sans">{barangay}</p>
                         </td>
 
                         {/* Program Category */}
-                        <td className="py-4 px-6">
+                        <td className="px-6 py-4">
                           <span className={cn(
-                            "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider inline-block font-sans",
-                            age >= 100 ? "bg-indigo-50 text-indigo-700 border border-indigo-100" : "bg-amber-50 text-amber-700 border border-amber-100"
+                            "text-xs font-bold uppercase tracking-wider font-sans",
+                            age >= 100 ? "text-indigo-600" : "text-amber-600"
                           )}>
                             {milestone}
                           </span>
                         </td>
 
                         {/* Applicant Type */}
-                        <td className="py-4 px-6">
+                        <td className="px-6 py-4">
                           <span className={cn(
-                            "px-2.5 py-1 rounded-full text-[11px] font-extrabold uppercase inline-block font-sans border",
+                            "text-xs font-bold uppercase tracking-wider font-sans",
                             (app.applicant_type || 'Local').toLowerCase() === 'living abroad'
-                              ? "bg-rose-50 text-rose-700 border-rose-200"
-                              : "bg-teal-50 text-teal-700 border-teal-200"
+                              ? "text-rose-600"
+                              : "text-teal-600"
                           )}>
                             {app.applicant_type || 'Local'}
                           </span>
                         </td>
 
                          {/* Status */}
-                        <td className="py-4 px-6">
+                        <td className="px-6 py-4 text-center">
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
                               setHistoryModalApp(app);
                             }}
-                            className="group flex flex-col items-start gap-1 cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-sky-500/20 rounded-xl"
+                            className="group inline-flex flex-col items-center gap-1 cursor-pointer text-center focus:outline-none"
                             title="Click to view status history"
                           >
                             <span className={cn(
-                              "px-2.5 py-1 rounded-full text-[11px] font-black border inline-block font-sans shadow-sm transition-all group-hover:scale-105 group-hover:shadow-md",
-                              statusVal === 'Pending' && "bg-amber-50 text-amber-700 border-amber-200 group-hover:bg-amber-100",
-                              (statusVal === 'Requirements Completed' || statusVal === 'Completed') && "bg-blue-50 text-blue-700 border-blue-200 group-hover:bg-blue-100",
-                              statusVal === 'Submitted' && "bg-purple-50 text-purple-700 border-purple-200 group-hover:bg-purple-100",
-                              statusVal === 'Approved' && "bg-emerald-50 text-emerald-700 border-emerald-200 group-hover:bg-emerald-100",
-                              statusVal === 'Disapproved' && "bg-rose-50 text-rose-700 border-rose-200 group-hover:bg-rose-100"
+                              "inline-flex items-center px-2.5 py-1 rounded-full border text-[10px] font-bold uppercase tracking-wider font-sans shadow-sm transition-all group-hover:scale-105",
+                              statusVal === 'Pending' && "bg-amber-50 text-amber-600 border-amber-100 group-hover:bg-amber-100",
+                              (statusVal === 'Requirements Completed' || statusVal === 'Completed') && "bg-blue-50 text-blue-600 border-blue-100 group-hover:bg-blue-100",
+                              statusVal === 'Submitted' && "bg-purple-50 text-purple-600 border-purple-100 group-hover:bg-purple-100",
+                              statusVal === 'Approved' && "bg-emerald-50 text-emerald-600 border-emerald-100 group-hover:bg-emerald-100",
+                              statusVal === 'Disapproved' && "bg-rose-50 text-rose-600 border-rose-100 group-hover:bg-rose-100"
                             )}>
-                              {statusVal === 'Pending' && "⌛ Pending"}
-                              {(statusVal === 'Requirements Completed' || statusVal === 'Completed') && "📑 Requirements Completed"}
-                              {statusVal === 'Submitted' && "✉️ Submitted"}
-                              {statusVal === 'Approved' && "✅ Approved"}
-                              {statusVal === 'Disapproved' && "❌ Disapproved"}
+                              {statusVal === 'Pending' ? "Pending" : 
+                               (statusVal === 'Requirements Completed' || statusVal === 'Completed') ? "Requirements Completed" : 
+                               statusVal === 'Submitted' ? "Submitted" : 
+                               statusVal === 'Approved' ? "Approved" : 
+                               statusVal === 'Disapproved' ? "Disapproved" : statusVal}
                             </span>
-                            <span className="text-[9px] text-slate-400 font-sans group-hover:text-slate-600 transition-colors pl-1">
-                              🕒 View History
+                            <span className="text-[9px] text-slate-400 font-sans group-hover:text-slate-600 transition-colors">
+                              View History
                             </span>
                           </button>
                         </td>
 
                         {/* Disbursement Status */}
-                        <td className="py-4 px-6">
+                        <td className="px-6 py-4 text-center">
                           {statusVal === 'Approved' ? (
                             <select
                               value={['Pending', 'For Release', 'Claimed'].find(
@@ -2050,21 +2050,26 @@ export default function ExpandedCentenariansActManagement({ hideHeader = false }
                                 e.stopPropagation();
                                 updateDisbursementStatus(citizenId, e.target.value);
                               }}
-                              className="px-2.5 py-1 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer font-sans"
+                              className={cn(
+                                "text-[10px] font-bold uppercase tracking-wider rounded border px-2 py-1 outline-none transition-all cursor-pointer font-sans shadow-sm",
+                                (app.disbursement_status || 'Pending').toLowerCase() === 'claimed' && "bg-blue-50 text-blue-600 border-blue-100 hover:bg-blue-100/50",
+                                (app.disbursement_status || 'Pending').toLowerCase() === 'for release' && "bg-indigo-50 text-indigo-600 border-indigo-100 hover:bg-indigo-100/50",
+                                ((app.disbursement_status || 'Pending').toLowerCase() === 'pending' || !app.disbursement_status) && "bg-amber-50 text-amber-600 border-amber-100 hover:bg-amber-100/50"
+                              )}
                             >
-                              <option value="Pending">⌛ Pending</option>
-                              <option value="For Release">✉️ For Release</option>
-                              <option value="Claimed">✅ Claimed</option>
+                              <option value="Pending">Pending</option>
+                              <option value="For Release">For Release</option>
+                              <option value="Claimed">Claimed</option>
                             </select>
                           ) : (
-                            <span className="px-2.5 py-1 bg-slate-50 text-slate-400 border border-slate-200 rounded-xl text-xs font-bold font-sans">
-                              ⌛ Pending (Locked)
+                            <span className="inline-flex items-center px-2.5 py-1 rounded-full border text-[10px] font-bold uppercase tracking-wider font-sans bg-slate-50 text-slate-400 border-slate-200">
+                              Pending (Locked)
                             </span>
                           )}
                         </td>
 
                         {/* Action */}
-                        <td className="py-4 px-6 relative">
+                        <td className="px-6 py-4 relative">
                           <div className="flex items-center justify-center">
                             <button
                               onClick={(e) => {
