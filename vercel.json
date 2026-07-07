@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/proxy/dbosca/(.*)",
+      "destination": "https://api-dbosca.drchiocms.com/api/$1"
+    },
+    {
+      "source": "/api/proxy/lcr/(.*)",
+      "destination": "https://lcrdev.pylontradingintl.com/api/client/record/list/birth/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

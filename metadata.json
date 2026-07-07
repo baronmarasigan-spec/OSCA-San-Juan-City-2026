@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Remix:  OSCA - San Juan July 7 ",
+  "description": "A centralized LGU platform for senior citizen welfare management, registration, and service delivery.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}
