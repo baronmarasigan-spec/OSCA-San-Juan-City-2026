@@ -365,14 +365,6 @@ export function ExpandedCentenarianForm({
       toast.success("Application submitted successfully!");
       setIsSubmitted(true);
 
-      setTimeout(() => {
-        if (mode === "admin" && onClose) {
-          onClose();
-        } else {
-          navigate("/portal/apply");
-        }
-      }, 5000);
-
     } catch (err) {
       console.warn("API submission failed, using local storage persistence fallback:", err);
       
@@ -389,14 +381,6 @@ export function ExpandedCentenarianForm({
 
       toast.success("Application submitted successfully!");
       setIsSubmitted(true);
-
-      setTimeout(() => {
-        if (mode === "admin" && onClose) {
-          onClose();
-        } else {
-          navigate("/portal/apply");
-        }
-      }, 5000);
     } finally {
       setIsLoading(false);
     }
